@@ -9,8 +9,9 @@
 import React from 'react';
 import type {Node} from 'react';
 import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
-
+  
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import HomeScreen from './src/screens/HomeScreen';
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -22,6 +23,7 @@ const App: () => Node = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <HomeScreen/>
     </SafeAreaView>
   );
 };
