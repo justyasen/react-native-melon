@@ -2,9 +2,10 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     title: {
-        backgroundColor: 'red'
+        backgroundColor: '#8C92AC'
     },
     image: {
-        backgroundColor: 'blue'
+        height: 650,
+        width: 400, 
     }, 
 })
