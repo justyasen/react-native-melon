@@ -43,6 +43,23 @@ export const styles = StyleSheet.create({
 
     rating: {
         flexDirection: "row", 
+        alignItems: 'center', 
+    },
+
+    star: {
+        marginTop: 2, 
+        marginLeft: 2,
+    },
+
+    oldPrice: {
+        color: 'red',
+        fontSize: 12, 
+        fontWeight: 'normal',
+        textDecorationLine: 'line-through',
+    },
+
+    page: {
+        padding: 10, 
     }
 
 
