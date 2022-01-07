@@ -1,21 +1,36 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'; 
-import { styles } from '../screens/HomeScreen/styles';
+import { styles }  from '../screens/HomeScreen/styles';
+import products from '../stubs/products';
 
-var backShot = require ('../assets/DSC05027.jpg');
+//var backShot = require ('../assets/DSC05027.jpg');
 
-const AudiRS7 = () => {
+interface ProductItemProperties {
+  item: {
+    id: string,
+    title: string,
+    image: string,
+    avgRating: number,
+    ratings: number,
+    price: number,
+    oldPrice?: number, //Putting ? to show this property is optional. 
+  }; 
+}
+
+const ProductItem = (props: ProductItemProperties) => {
+  const item = props.item; 
     return (
     <View style={styles.root}>
         <Image 
           style={styles.image}
-          source={backShot}
+          source={item.image}
        />
       <View style={styles.textContainer}>
-        <Text style={styles.title} numberOfLines={3}> Audi RS7 </Text>
+        <Text style={styles.title} numberOfLines={3}> {item.title} </Text>
 
         <View style={styles.rating}>
+
           <FontAwesome style={styles.star} name = 'star' size={18} color={'#E47911'}></FontAwesome>
           <FontAwesome style={styles.star} name = 'star' size={18} color={'#E47911'}></FontAwesome>
           <FontAwesome style={styles.star} name = 'star' size={18} color={'#E47911'}></FontAwesome>
@@ -25,13 +40,13 @@ const AudiRS7 = () => {
           <Text>554</Text> 
         </View>
         <Text style={styles.price}>
-           $ 140 000
-           <Text style={styles.oldPrice}>  $ 180 000 </Text>
+           {item.price}
+           <Text style={styles.oldPrice}>  {item.oldPrice} </Text>
            </Text> 
-        <Text style={styles.textDescription}> This V8 beast has 600 horsepower and can do 0-100 km/h in around 3 seconds! </Text>
+        <Text style={styles.textDescription}> {item.description} </Text>
     </View>
 </View>
     );
 };
 
-export default AudiRS7;
+export default ProductItem;

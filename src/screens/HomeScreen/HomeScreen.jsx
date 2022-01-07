@@ -1,13 +1,14 @@
 import React from "react";
 import { View } from 'react-native';
-import AudiRS7 from "../../components/AudiRS7";
+import ProductItem from "../../components/ProductItem";
+import products from "../../stubs/products";
 import { styles } from './styles';
 
 
 export const HomeScreen = () => {
     return (
       <View style={styles.page}> 
-        <AudiRS7 />
+        <ProductItem item={products[1]} />
       </View>
     );
 };
