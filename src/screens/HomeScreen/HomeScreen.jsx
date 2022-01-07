@@ -11,6 +11,7 @@ export const HomeScreen = () => {
         <FlatList
         data={products}
         renderItem={({item}) => <ProductItem item={item}/>}
+        keyExtractor={({id}) => id}
         />
       </View>
     );
