@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     image: {
         flex: 2,
         height: 350,
-        resizeMode: 'contain' //so it can resize depending on device size
+        resizeMode: 'contain' , //so it can resize depending on device size
     }, 
 
     root: {

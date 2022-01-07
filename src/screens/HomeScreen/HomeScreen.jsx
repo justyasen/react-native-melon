@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import ProductItem from "../../components/ProductItem";
 import products from "../../stubs/products";
 import { styles } from './styles';
@@ -8,7 +8,10 @@ import { styles } from './styles';
 export const HomeScreen = () => {
     return (
       <View style={styles.page}> 
-        <ProductItem item={products[1]} />
+        <FlatList
+        data={products}
+        renderItem={({item}) => <ProductItem item={item}/>}
+        />
       </View>
     );
 };

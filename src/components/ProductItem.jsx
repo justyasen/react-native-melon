@@ -13,8 +13,8 @@ interface ProductItemProperties {
     image: string,
     avgRating: number,
     ratings: number,
-    price: number,
-    oldPrice?: number, //Putting ? to show this property is optional. 
+    price: string,
+    oldPrice?: string, //Putting ? to show this property is optional. 
   }; 
 }
 
@@ -30,14 +30,17 @@ const ProductItem = (props: ProductItemProperties) => {
         <Text style={styles.title} numberOfLines={3}> {item.title} </Text>
 
         <View style={styles.rating}>
+          {[0,0,0,0,0].map((element, i) => 
+          <FontAwesome
+          style={styles.star}
+          name = {i < Math.floor(item.avgRating) ? 'star' : 'star-o'} //if index is lower than the avgRating, it will round the avgRating to the lower number - for example - 4.2 will become 4. And it will display 4 stars. 
+          size={18} 
+          color={'#E47911'}>
 
-          <FontAwesome style={styles.star} name = 'star' size={18} color={'#E47911'}></FontAwesome>
-          <FontAwesome style={styles.star} name = 'star' size={18} color={'#E47911'}></FontAwesome>
-          <FontAwesome style={styles.star} name = 'star' size={18} color={'#E47911'}></FontAwesome>
-          <FontAwesome style={styles.star} name = 'star' size={18} color={'#E47911'}></FontAwesome>
-          <FontAwesome style={styles.star} name = 'star-half-full' size={18} color={'#E47911'}></FontAwesome> 
+          </FontAwesome>)
+          }
 
-          <Text>554</Text> 
+          <Text>{item.ratings}</Text> 
         </View>
         <Text style={styles.price}>
            {item.price}
