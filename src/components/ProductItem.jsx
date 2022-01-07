@@ -32,6 +32,7 @@ const ProductItem = (props: ProductItemProperties) => {
         <View style={styles.rating}>
           {[0,0,0,0,0].map((element, i) => 
           <FontAwesome
+          
           key={`${item.id}-${i}`}
           style={styles.star}
           name = {i < Math.floor(item.avgRating) ? 'star' : 'star-o'} //if index is lower than the avgRating, it will round the avgRating to the lower number - for example - 4.2 will become 4. And it will display 4 stars. 

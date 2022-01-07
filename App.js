@@ -1,17 +1,12 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import type {Node} from 'react';
 import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
-
+import { NavigationContainer } from '@react-navigation/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import HomeScreen from './src/screens/HomeScreen'
+import { HomeScreen } from './src/screens/HomeScreen/HomeScreen';
+import { ProductScreen } from './src/screens/ProductScreen/ProductScreen';
+
+const Stack = createNativeStackNavigator();
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -21,10 +16,12 @@ const App: () => Node = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <HomeScreen/>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Products" component={ProductScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
