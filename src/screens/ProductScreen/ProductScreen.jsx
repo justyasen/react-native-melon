@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
 import product from '../../stubs/product';
+import QuantitySelector from '../../components/QuantitySelector/QuantitySelector'
 
 const ProductScreen = () => {
     return (
@@ -14,6 +15,8 @@ const ProductScreen = () => {
         </Text>
 
         <Text style={styles.textDescription}> {product.description} </Text>
+
+        <QuantitySelector />
     </View>
     )
 }
