@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'; 
-import { styles }  from '../screens/HomeScreen/styles';
-import products from '../stubs/products';
+import { styles }  from '../../screens/HomeScreen/styles';
+import products from '../../stubs/products';
 
 //var backShot = require ('../assets/DSC05027.jpg');
 

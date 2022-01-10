@@ -3,20 +3,21 @@ import { FlatList, View } from 'react-native';
 import ProductItem from "../../components/ProductItem";
 import products from "../../stubs/products";
 import { styles } from './styles';
-import { SearchBar } from "../../components/SearchBar";
+import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { Divider } from "react-native-elements";
 import { Button } from 'react-native';
 import ProductScreen from '../ProductScreen/ProductScreen';
+import { PRODUCT_ROUTE } from "../../utils/routes";
 
 
 export const HomeScreen = ({ navigation }) => {
 
     const onPressHandler = () => {
-      navigation.navigate('ProductScreen');
+      navigation.navigate(PRODUCT_ROUTE);
     }
 
     return (
-      <React.Fragment>
+      <>
       <View> 
         <Button title="Product details" onPress={onPressHandler} />
       </View>
@@ -30,6 +31,6 @@ export const HomeScreen = ({ navigation }) => {
         ListHeaderComponent={SearchBar}
         />
       </View>
-      </React.Fragment>
+      </>
     );
 };
