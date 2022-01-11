@@ -1,4 +1,4 @@
-export default [
+export const cars = [
     //Array of all products
     {
         id: '1', 

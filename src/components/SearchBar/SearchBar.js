@@ -3,16 +3,19 @@ import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { useState } from 'react';
 import products from '../../stubs/products';
 
-export const SearchBar = () => {
+export const SearchBar = ({onSearch}) => {
 
-    const [searchQuery, setSearchQuery] = React.useState('');
-    const onChangeSearch = query => setSearchQuery(query);
+    const onChangeSearch = (query) => {
+        onSearch(query)
+        setSearchQuery(query)
+    }
+
 
     return(
     <View style={styles.container}>
         <TextInput placeholder='What are you looking for? '
         onChangeText={onChangeSearch}
-        value={searchQuery}
+        value={onSearch.searchQuery}
         />
         
     </View>

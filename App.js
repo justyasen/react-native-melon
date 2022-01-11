@@ -10,11 +10,34 @@ import SearchBar from './src/components/SearchBar';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { PRODUCT_ROUTE } from './src/utils/routes';
 import { HOME_ROUTE } from './src/utils/routes';
-import { useState } from 'react-native';
-
+import { useState } from 'react';
+import { filter } from "lodash-filter";
 
 
 const App: () => Node = () => {
+
+  function renderHeader() {
+    return (
+      <View
+        style={{
+          backgroundColor: '#fff',
+          padding: 10,
+          marginVertical: 10,
+          borderRadius: 20
+        }}
+      >
+        <TextInput
+          autoCapitalize="none"
+          autoCorrect={false}
+          clearButtonMode="always"
+          value={query}
+          onChangeText={queryText => handleSearch(queryText)}
+          placeholder="Search"
+          style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
+        />
+      </View>
+    );
+  }
 
   const Stack = createNativeStackNavigator();
   const isDarkMode = useColorScheme() === 'dark';
