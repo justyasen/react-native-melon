@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FlatList, View } from 'react-native';
 import ProductItem from "../../components/ProductItem";
-import { cars as productsStub } from "../../stubs/products";
+import { cars } from "../../stubs/products";
 import { styles } from './styles';
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { Divider } from "react-native-elements";
@@ -12,20 +12,9 @@ import product from "../../stubs/product";
 
 
 export const HomeScreen = ({ navigation }) => {
+  const [searchTerm, setSearchTerm] = useState(''); 
 
-    const [searchQuery, setSearchQuery] = useState('');
-    const [products, setProducts] = useState(productsStub)
-
-    const filterProducts = (query) => {
-      if(!query){
-        return setProducts(productsStub);
-      }
-      const filteredProducts = products.filter((product) => (
-      product.title.includes(query)
-      ))
-        setProducts(filteredProducts);
-        console.warn(filteredProducts); 
-    }
+  const filteredCars = cars.filter(car => (car.title.toLowerCase().includes(searchTerm.toLowerCase())))
 
     const onPressHandler = () => {
       navigation.navigate(PRODUCT_ROUTE);
@@ -39,11 +28,11 @@ export const HomeScreen = ({ navigation }) => {
 
       <View style={styles.page}> 
         <FlatList
-        data={products}
+        data={filteredCars}
         renderItem={({item}) => <ProductItem item={item}/>}
         keyExtractor={({id}) => id}
         showsVerticalScrollIndicator={false}
-        ListHeaderComponent={() => <SearchBar onSearch={filterProducts}/>}
+        ListHeaderComponent={() => <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} />}
         />
       </View>
       </>

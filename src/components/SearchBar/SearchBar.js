@@ -2,23 +2,16 @@ import React from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { useState } from 'react';
 import products from '../../stubs/products';
+import { cars } from '../../stubs/products';
 
-export const SearchBar = ({onSearch}) => {
-
-    const onChangeSearch = (query) => {
-        onSearch(query)
-        setSearchQuery(query)
-    }
-
+export const SearchBar = ({setSearchTerm, searchTerm}) => {
 
     return(
-    <View style={styles.container}>
-        <TextInput placeholder='What are you looking for? '
-        onChangeText={onChangeSearch}
-        value={onSearch.searchQuery}
-        />
-        
+<>    
+    <View>
+        <TextInput placeholder = "Search products " onChangeText={setSearchTerm} value={searchTerm} />
     </View>
+</>
     )
 }
 
